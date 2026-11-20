@@ -1,0 +1,114 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+
+/* =================================
+   INSTRUCTOR SIS - DARK MAROON MODE
+================================= */
+
+html[data-theme="dark"] body {
+    background: #180d11 !important;
+    color: #f8e9ec !important;
+}
+
+/* Cards and Panels */
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .form-panel,
+html[data-theme="dark"] .auth-container,
+html[data-theme="dark"] .table-container {
+    background: #29171e !important;
+    color: #f8e9ec !important;
+    border-color: #51303b !important;
+}
+
+/* Headings and Text */
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] p,
+html[data-theme="dark"] label,
+html[data-theme="dark"] td,
+html[data-theme="dark"] th {
+    color: #f8e9ec;
+}
+
+/* Input Fields */
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] .form-control {
+    background: #1d1116 !important;
+    color: #ffffff !important;
+    border-color: #68404d !important;
+}
+
+/* Tables */
+html[data-theme="dark"] th {
+    background: #421b29 !important;
+}
+
+html[data-theme="dark"] td {
+    background: #29171e !important;
+    border-color: #51303b !important;
+}
+
+/* Navigation */
+html[data-theme="dark"] .navbar {
+    background: #230c14 !important;
+}
+
+/* Links */
+html[data-theme="dark"] a {
+    color: #f0a9ba;
+}
+
+/* Dark Mode Button */
+#themeToggle {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 99999;
+    border: none;
+    border-radius: 30px;
+    padding: 13px 20px;
+    background: #701c2c;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.2);
+}
+
+    #themeToggle:hover {
+        background: #963849;
+    }

@@ -1,0 +1,208 @@
+﻿@model russelregadillo.ViewModels.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | Instructor Information System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <style>
+            * {
+                font-family: 'Poppins', sans-serif;
+            }
+
+            body {
+                min-height: 100vh;
+                background: linear-gradient(135deg, #fff7f7, #ffe3e3);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 30px 15px;
+            }
+
+            .register-container {
+                width: 100%;
+                max-width: 1050px;
+                display: grid;
+                grid-template-columns: .85fr 1.15fr;
+                background: white;
+                border-radius: 25px;
+                overflow: hidden;
+                box-shadow: 0 20px 60px rgba(139, 0, 0, .12);
+            }
+
+            .welcome-panel {
+                background: linear-gradient(145deg, #c1121f, #780000);
+                color: white;
+                padding: 55px 40px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+                .welcome-panel h1 {
+                    font-size: 32px;
+                    font-weight: 800;
+                }
+
+                .welcome-panel p {
+                    color: #ffe1e1;
+                    line-height: 1.8;
+                }
+
+            .brand-icon {
+                font-size: 55px;
+                margin-bottom: 25px;
+            }
+
+            .form-panel {
+                padding: 45px 50px;
+            }
+
+                .form-panel h2 {
+                    color: #2b1010;
+                    font-weight: 800;
+                }
+
+            .subtitle {
+                color: #7d6666;
+                margin-bottom: 25px;
+            }
+
+            .form-label {
+                font-weight: 600;
+                color: #492525;
+            }
+
+            .form-control {
+                padding: 12px 14px;
+                border: 1px solid #f0d6d6;
+                border-radius: 10px;
+            }
+
+                .form-control:focus {
+                    border-color: #c1121f;
+                    box-shadow: 0 0 0 3px rgba(193,18,31,.1);
+                }
+
+            .btn-register {
+                background: #c1121f;
+                color: white;
+                border: none;
+                padding: 14px;
+                border-radius: 10px;
+                font-weight: 700;
+                width: 100%;
+                margin-top: 12px;
+            }
+
+                .btn-register:hover {
+                    background: #8b0000;
+                    color: white;
+                }
+
+            .login-link {
+                color: #c1121f;
+                font-weight: 700;
+                text-decoration: none;
+            }
+
+            @@media (max-width: 768px) {
+                .register-container {
+                    grid-template-columns: 1fr;
+                }
+
+                .welcome-panel {
+                    padding: 35px;
+                }
+
+                .form-panel {
+                    padding: 35px 25px;
+                }
+            }
+    </style>
+    <link rel="stylesheet" href="/css/site.css" />
+</head>
+<body>
+    <div class="register-container">
+        <div class="welcome-panel">
+            <div class="brand-icon">
+                <span id="changingEmoji">😊</span>
+            </div>
+            <h1>Create Your Account</h1>
+            <p>Discover a Better Way to Manage Instructor Information.</p>
+            <p class="mt-4">Your Account, Your Access! Register today for a simpler and more secure management experience.</p>
+        </div>
+
+        <div class="form-panel">
+            <h2>Register</h2>
+            <p class="subtitle">Fill in the information below to create your account.</p>
+
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <form asp-controller="Account" asp-action="Register" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="mb-3">
+                    <label asp-for="FullName" class="form-label">Full Name</label>
+                    <input asp-for="FullName" class="form-control" placeholder="Enter your full name" />
+                    <span asp-validation-for="FullName" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">Email Address</label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter your email" />
+                    <span asp-validation-for="Email" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">Password</label>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Create a password" />
+                    <span asp-validation-for="Password" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ConfirmPassword" class="form-label">Confirm Password</label>
+                    <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm your password" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                </div>
+
+                <button type="submit" class="btn btn-register">Create Account →</button>
+            </form>
+
+            <p class="text-center mt-4 mb-0">
+                Already have an account?
+                <a asp-controller="Account" asp-action="Login" class="login-link">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+    
+<script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const emojis = ["😊", "🥰", "😍", "🤩", "😎", "😘", "😉", "😇"];
+                const emojiElement = document.getElementById("changingEmoji");
+                let index = 0;
+
+                if (emojiElement) {
+                    setInterval(function () {
+                        index = (index + 1) % emojis.length;
+                        emojiElement.textContent = emojis[index];
+                    }, 1500);
+                }
+            });
+    </script>
+    <script src="/js/site.js"></script>
+</body>
+</html>

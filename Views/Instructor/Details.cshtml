@@ -1,0 +1,116 @@
+﻿@model russelregadillo.Models.Instructor
+@{
+    ViewData["Title"] = "Instructor Details";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Instructor Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+            * {
+                font-family: 'Poppins',sans-serif;
+            }
+
+            body {
+                background: #F9F3F4;
+                padding: 40px 15px;
+                color: #321B20;
+            }
+
+            .details-card {
+                max-width: 750px;
+                margin: auto;
+                background: white;
+                border-radius: 20px;
+                padding: 35px;
+                box-shadow: 0 10px 35px #4A101C10;
+            }
+
+            h3 {
+                font-weight: 700;
+                color: #4A101C;
+            }
+
+            .subtitle {
+                color: #987B82;
+                font-size: 12px;
+                margin-bottom: 30px;
+            }
+
+            .detail-item {
+                padding: 16px;
+                background: #FCF7F8;
+                border-radius: 11px;
+                height: 100%;
+            }
+
+                .detail-item small {
+                    color: #987B82;
+                    font-size: 10px;
+                    display: block;
+                    margin-bottom: 6px;
+                }
+
+                .detail-item strong {
+                    font-size: 13px;
+                    color: #4A101C;
+                    overflow-wrap: anywhere;
+                }
+
+            .btn-maroon {
+                background: #701C2C;
+                color: white;
+                border: 0;
+                padding: 12px 20px;
+                border-radius: 9px;
+                text-decoration: none;
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+                .btn-maroon:hover {
+                    background: #4A101C;
+                    color: white;
+                }
+
+            .btn-light-custom {
+                background: #F9EFF1;
+                color: #701C2C;
+                padding: 12px 20px;
+                border-radius: 9px;
+                text-decoration: none;
+                font-size: 12px;
+                font-weight: 600;
+            }
+    </style>
+</head>
+<body>
+    <div class="details-card">
+        <h3>Instructor Details</h3>
+        <p class="subtitle">Complete information about this instructor.</p>
+
+        <div class="row g-3">
+            <div class="col-md-6"><div class="detail-item"><small>Instructor ID</small><strong>@Model.InstructorId</strong></div></div>
+            <div class="col-md-6"><div class="detail-item"><small>Full Name</small><strong>@Model.FullName</strong></div></div>
+            <div class="col-md-6"><div class="detail-item"><small>Age</small><strong>@Model.Age</strong></div></div>
+            <div class="col-md-6"><div class="detail-item"><small>Gender</small><strong>@Model.Gender</strong></div></div>
+            <div class="col-12"><div class="detail-item"><small>Address</small><strong>@Model.Address</strong></div></div>
+            <div class="col-md-6"><div class="detail-item"><small>Designation</small><strong>@Model.Designation</strong></div></div>
+            <div class="col-md-6"><div class="detail-item"><small>Contact Number</small><strong>@Model.ContactNumber</strong></div></div>
+            <div class="col-md-6"><div class="detail-item"><small>Majorship</small><strong>@Model.Majorship</strong></div></div>
+            <div class="col-md-6"><div class="detail-item"><small>Bachelor Degree</small><strong>@Model.BachelorDegree</strong></div></div>
+            <div class="col-12"><div class="detail-item"><small>Email Address</small><strong>@Model.EmailAddress</strong></div></div>
+        </div>
+
+        <div class="d-flex justify-content-end gap-2 mt-4">
+            <a asp-action="Index" class="btn-light-custom">Back</a>
+            <a asp-action="Edit" asp-route-id="@Model.InstructorId" class="btn-maroon">Edit Information</a>
+        </div>
+    </div>
+</body>
+</html>
